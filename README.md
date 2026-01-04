@@ -25,7 +25,7 @@ Available:[https://www.kaggle.com/datasets/farukece/semiconductor-stocks-and-the
 ## **Features**
 -Replacing **absolute** values that carry much less meaning compared to **ratios** - Provide contextual understanding of price dynamics beyond simple today/tommorow values comparisons, incorporate short, medium, and long-term indicators, that significanlty improved the model and balanced the decision-tree
 
-# **Overview**
+## **Overview**
 
 ###**Semiconductor Companies performace**
 <img width="1142" height="542" alt="Screenshot 2026-01-03 190507" src="https://github.com/user-attachments/assets/100b173d-a62a-4b8e-8d2f-aa8014bd0040" />
@@ -76,11 +76,11 @@ Now we will **give algorithm more information about those periods**:
 <img width="1879" height="1096" alt="Screenshot 2026-01-03 190418" src="https://github.com/user-attachments/assets/0e93cd11-c9a4-4148-bf8b-c6a9000277fa" />
 
  
- **Decision Logic*
+ *Decision Logic*
 * Each node in the tree represents a decision point based on one of added features.
 *  **To identify patterns like** : if the price has been going up for the last 5 days (`Close_Ratio_5` > 0.7 ) and the long-term trend (`Trend_250`) is also positive, then predict an 'Up' day.
 
- *Leaves - Predictions**  
+ *Leaves - Predictions** 
 * leaf nodes (very bottom of the tree) show the final prediction (Up or Down)
 * `samples` (number of data points that reached that leaf)
 * `value` ( distribution of 'Up' vs 'Down' days in that leaf).
