@@ -7,7 +7,7 @@ There is a large amount of stock market data available, which is widely used to 
 
 To discover valuable insights, this data requires careful preparation and the application of relevant exploratory techniques.
 
-# **Data Set**
+## **Data Set**
 The dataset used in this project is generated using the `yfinance` library from publicly available Yahoo Finance data. It is time-series historical daily stock market data for 152 semiconductor companies—including NVIDIA, AMD, Intel, and others—spanning from 2012 to 2024
 
 For each: Company name ,Stock name, Date of the trading day (YYYY-MM-DD),
@@ -16,14 +16,14 @@ Opening price, Highest price of the day, Lowest price, Closing price and Volume
 Available:[https://www.kaggle.com/datasets/farukece/semiconductor-stocks-and-the-ai-surge](url) “Semiconductor Stocks and the AI Surge”by F. Keçe, available on Kaggle.
 
 
-# **Procedure**
+## **Procedure**
 1. Analyze how the top 10 performers over the last 3 years were affected, comparing trends from 2012 and from 2022
 2. Verify results using **Risk/Return analysis** and a **K-means clustering model to see how the days can be grouped to analyze the current market condition** 
 3. **Build a predictive model** for the best-performing company
 4. **Improve the predictive mode** by adding rolling averages and new features, applying relevant techniques for time-series data
 
-# **Features**
--Replacing **absolute** values that carry much less meaning compared to **ratios**
+## **Features**
+-Replacing **absolute** values that carry much less meaning compared to **ratios** - Provide contextual understanding of price dynamics beyond simple today/tommorow values comparisons, incorporate short, medium, and long-term indicators, that significanlty improved the model and balanced the decision-tree
 
 # **Overview**
 
@@ -63,13 +63,9 @@ improve it by training rolling averages
 # **Improving the model**
 
 ### **Increasing Confidence**
-
-* Increase default threshhold to 0.7 - if there is a greater than a 70 percent chance than a price will go up , the
- model return that the price will go up
-* Model will need to be more confident to predict up will go up*
+* Increase default threshhold to 0.7 - model return that the price will go up if there is a greater than a 70% chance that  price go up 
 
 ### **Changing predictors**
-
 * **rolling averages** - add features, that are **Ratios**, **how much price today is greater/lesser, than it was last week, last month, last year**, replaced values of high, low, open, in the predictions
 * **trend feature** - sum of the target for each day over the last given days
 
@@ -79,17 +75,17 @@ Now we will **give algorithm more information about those periods**:
 
 <img width="1879" height="1096" alt="Screenshot 2026-01-03 190418" src="https://github.com/user-attachments/assets/0e93cd11-c9a4-4148-bf8b-c6a9000277fa" />
 
+ 
+ **Decision Logic*
+* Each node in the tree represents a decision point based on one of added features.
+*  **To identify patterns like** : if the price has been going up for the last 5 days (`Close_Ratio_5` > 0.7 ) and the long-term trend (`Trend_250`) is also positive, then predict an 'Up' day.
 
-* **Decision Logic**
-Each node in the tree represents a decision point based on one of added features. Node split based on whether `Close_Ratio_5` (current price vs. 5-day average) is above or below a certain threshold.
-Helps to identify patterns like:
-If the price has been going up for the last 5 days (`Close_Ratio_5` > 0.7 ) and the long-term trend (`Trend_250`) is also positive, then predict an 'Up' day.
-* **Leaves - Predictions**  
-The leaf nodes (very bottom of the tree) show the final prediction (Up or Down)
-`samples` (number of data points that reached that leaf)
-`value` - distribution of 'Up' vs 'Down' days in that leaf).
+ *Leaves - Predictions**  
+* leaf nodes (very bottom of the tree) show the final prediction (Up or Down)
+* `samples` (number of data points that reached that leaf)
+* `value` ( distribution of 'Up' vs 'Down' days in that leaf).
 
-Overall, the new features provided the model more contextual understanding of price dynamics beyond simple today/tommorow values comparisons used before. We incorporate short, medium, and long-term indicators, that significanlty improved the model.
+
 
 
 # **References:**
