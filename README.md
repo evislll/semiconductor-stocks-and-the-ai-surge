@@ -47,8 +47,7 @@ clear pattern that supports the idea that infrastructure outperforms speculation
 **Aeluma , Credo Technology** delivers exceptionally high returns with moderate volatility efficient, sustainable growth, they are infrastructure-focused, They deliver strong long-term returns without the extreme risk we expect from speculative leaders
 **NVIDIA**is not the most efficient performer here
 Companies that build the underlying infrastructure like **Credo Technology, Broadcom, HANMI Semiconductor, Disco ---Corp., and Advantest**—show lower risk with  consistent returns.
-
-<img width="1295" height="806" alt="Screenshot 2026-01-03 184634" src="https://github.com/user-attachments/assets/b534e109-24dd-4bf0-b199-d8b3ccb814d0" />
+<img width="1312" height="823" alt="Screenshot 2026-01-03 184624" src="https://github.com/user-attachments/assets/258d6e07-3f03-4739-aaa3-330b3e24c813" />
 
 # **Predictive Model for the top Performer**
 how  model makes predictions:
@@ -80,7 +79,7 @@ Now we will **give algorithm more information about those periods**:
 * Each node in the tree represents a decision point based on one of added features.
 *  **To identify patterns like** : if the price has been going up for the last 5 days (`Close_Ratio_5` > 0.7 ) and the long-term trend (`Trend_250`) is also positive, then predict an 'Up' day.
 
- *Leaves - Predictions** 
+ *Leaves - Predictions* 
 * leaf nodes (very bottom of the tree) show the final prediction (Up or Down)
 * `samples` (number of data points that reached that leaf)
 * `value` ( distribution of 'Up' vs 'Down' days in that leaf).
